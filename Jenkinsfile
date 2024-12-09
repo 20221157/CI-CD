@@ -4,7 +4,7 @@ node {
         git 'https://github.com/20221157/CI-CD.git'
     }
     stage('Build image') {
-        app = docker.build("20221157/test")
+        app = docker.build("20221157/team9")
     }
     stage('Test image') {
         app.inside {
