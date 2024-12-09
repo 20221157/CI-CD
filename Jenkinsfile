@@ -12,7 +12,7 @@ node {
         }
     }
     stage('Push image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'github-credentials	') {
+        docker.withRegistry('https://registry.hub.docker.com', 'team9') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
