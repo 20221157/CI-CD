@@ -1,10 +1,10 @@
 node {
     def app
     stage('Clone repository') {
-        git 'https://github.com/thatsgoodd/opensourceteam9.git'
+        git 'https://github.com/20221157/CI-CD.git'
     }
     stage('Build image') {
-        app = docker.build("yumyummm/test")
+        app = docker.build("20221157/test")
     }
     stage('Test image') {
         app.inside {
