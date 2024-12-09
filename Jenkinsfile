@@ -1,4 +1,4 @@
-node { //t
+node { 
     def app
     stage('Clone repository') {
         git 'https://github.com/20221157/CI-CD.git'
