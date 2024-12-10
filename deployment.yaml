@@ -16,17 +16,17 @@ spec:
       - name: opensourceteam9-container
         image: 20221157/team9:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         livenessProbe:
           httpGet:
             path: /
-            port: 3000
+            port: 80
           initialDelaySeconds: 3
           periodSeconds: 5
         readinessProbe:
           httpGet:
             path: /
-            port: 3000
+            port: 80
           initialDelaySeconds: 3
           periodSeconds: 5
 ---
@@ -40,5 +40,5 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 3000
+    targetPort: 80
   type: LoadBalancer
