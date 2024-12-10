@@ -22,7 +22,16 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker run --name $DOCKER_IMAGE-container -d $DOCKER_IMAGE'
+		sh '''
+                # 기존 컨테이너가 존재하면 중지하고 삭제
+                if docker ps -a | grep team9-container; then
+                    docker stop team9-container || true
+                    docker rm team9-container || true
+                fi
+                
+                # 새 컨테이너 실행
+                docker run --name team9-container -d $DOCKER_IMAGE
+                '''
             }
         }
         stage('Push Docker Image to Docker Hub') {
