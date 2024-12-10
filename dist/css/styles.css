@@ -2043,8 +2043,7 @@ progress {
 .form-control::file-selector-button {
   padding: 0.75rem 1rem;
   margin: -0.75rem -1rem;
-  -webkit-margin-end: 1rem;
-          margin-inline-end: 1rem;
+  margin-inline-end: 1rem;
   color: #212529;
   background-color: #e9ecef;
   pointer-events: none;
@@ -2092,8 +2091,7 @@ progress {
 .form-control-sm::file-selector-button {
   padding: 0.5rem 0.75rem;
   margin: -0.5rem -0.75rem;
-  -webkit-margin-end: 0.75rem;
-          margin-inline-end: 0.75rem;
+  margin-inline-end: 0.75rem;
 }
 
 .form-control-lg {
@@ -2105,8 +2103,7 @@ progress {
 .form-control-lg::file-selector-button {
   padding: 1rem 1.25rem;
   margin: -1rem -1.25rem;
-  -webkit-margin-end: 1.25rem;
-          margin-inline-end: 1.25rem;
+  margin-inline-end: 1.25rem;
 }
 
 textarea.form-control {
@@ -5808,8 +5805,7 @@ textarea.form-control-lg {
   float: left;
   width: 100%;
   margin-right: -100%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
