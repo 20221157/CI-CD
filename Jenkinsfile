@@ -17,7 +17,9 @@ pipeline {
         }
 	stage('Build Docker Image') {
             steps {
-                myapp = docker.build("20221157/team9:${env.BUILD_ID}")
+		    script {
+                	myapp = docker.build("20221157/team9:${env.BUILD_ID}")
+		    }
             }
         }
         stage('Run Docker Container') {
