@@ -17,7 +17,7 @@ pipeline {
         }
 	stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh 'docker build -t team9:${env.BUILD_ID} .'
             }
         }
         stage('Run Docker Container') {
@@ -30,7 +30,7 @@ pipeline {
                 fi
                 
                 # 새 컨테이너 실행
-                docker run --name team9-container -d $DOCKER_IMAGE
+                docker run --name team9-container -d team9:${env.BUILD_ID}
                 '''
             }
         }
@@ -47,6 +47,7 @@ pipeline {
 		branch 'master'
 	    }
             steps {
+		sh "sed -i 's/team9:latest/team9:${env.BUILD_ID)/g' deployment.yaml"
 		step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
