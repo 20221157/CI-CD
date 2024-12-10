@@ -48,7 +48,12 @@ pipeline {
 	    }
             steps {
 		sh "sed -i 's/team9:latest/team9:${env.BUILD_ID}/g' deployment.yaml"
-		step([$class: 'kubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+		kubernetesDeploy(
+            		kubeconfigId: env.CREDENTIALS_ID,  // GKE 인증 정보를 위한 자격증명 ID
+            		configs: 'deployment.yaml',        // 배포할 Kubernetes manifest 파일
+            		enableConfigSubstitution: true,    // 환경 변수 치환 활성화
+            		verifyDeployments: true            // 배포 후 배포 상태 확인
+        	)
             }
         }
     }
