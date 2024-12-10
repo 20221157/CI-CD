@@ -17,7 +17,7 @@ const browserSyncPath = upath.resolve(upath.dirname(__filename), '../node_module
 */
 concurrently([
 	{
-		command: `"${browserSyncPath}" dist -w --files dist/**/*.css --no-online`,
+		command: `"${browserSyncPath}" dist -w --files dist/**/*.css --no-online --port 3000`,
 		name: 'SB_BROWSER_SYNC',
 		prefixColor: 'bgGreen.bold',
 	}
