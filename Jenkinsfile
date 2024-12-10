@@ -33,12 +33,15 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to Kubernetes') {
+        stage('Deploy to GKE') {
+	    when {
+		 branch 'master'
+	    }
             steps {
-                sh '''
-                kubectl apply -f deployment.yaml
-                kubectl rollout status deployment/$KUBERNETES_DEPLOYMENT
-                '''
+		sh "sed -i 's/team9:latest/team9:${env.BUILD_ID}/g' deployment.yaml"
+		step([$class: 'kubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true]) 
+		}
+		
             }
         }
     }
