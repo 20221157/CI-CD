@@ -9,8 +9,9 @@
         "build:scripts": "node scripts/build-scripts.js",
         "build:scss": "node scripts/build-scss.js",
         "clean": "node scripts/clean.js",
-        "start": "npm run build && node scripts/start.js",
-        "start:debug": "npm run build && node scripts/start-debug.js"
+        "start": "npm run setup && node scripts/start.js",
+        "start:debug": "npm run build && node scripts/start-debug.js",
+        "setup": "npm install shelljs"
     },
     "description": "An HTML landing page template built with Bootstrap",
     "keywords": [
