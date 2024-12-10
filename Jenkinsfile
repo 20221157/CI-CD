@@ -6,7 +6,7 @@ pipeline {
 	LOCATION = 'asia-northeast3-a'
 	CREDENTIALS_ID = 'gke'
         DOCKER_IMAGE = 'team9'
-        DOCKER_HUB_REPO = '20221157/team9' // Docker Hub 계정 반영
+        DOCKER_HUB_REPO = '20221157/team9' // Docker Hub 계정 반영.
         KUBERNETES_DEPLOYMENT = 'opensourceteam9-deployment'
     }
     stages {
