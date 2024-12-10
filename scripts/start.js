@@ -1,34 +1,17 @@
-const concurrently = require('concurrently');
-const upath = require('upath');
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 3000;
 
-const browserSyncPath = upath.resolve(upath.dirname(__filename), '../node_modules/.bin/browser-sync');
+// dist 폴더 내의 파일을 정적 파일로 제공 (경로를 수정)
+app.use(express.static(path.join(__dirname, '..', 'dist')));
 
-/*concurrently([
-    { command: 'node scripts/sb-watch.js', name: 'SB_WATCH', prefixColor: 'bgBlue.bold' },
-    { 
-        command: `"${browserSyncPath}" --reload-delay 2000 --reload-debounce 2000 dist -w --no-online`,
-        name: 'SB_BROWSER_SYNC', 
-        prefixColor: 'bgGreen.bold',
-    }
-], {
-    prefix: 'name',
-    killOthers: ['failure', 'success'],
-}).then(success, failure);
-*/
-concurrently([
-	{
-		command: `"${browserSyncPath}" dist -w --files dist/**/*.css --no-online --port 3000`,
-		name: 'SB_BROWSER_SYNC',
-		prefixColor: 'bgGreen.bold',
-	}
-], {
-	prefix: 'name',
-	killOthers: ['failure', 'success'],
-})
-function success() {
-    console.log('Success');    
-}
+// 모든 요청에 대해 index.html을 반환하도록 설정
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});
 
-function failure() {
-    console.log('Failure');
-}
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
+

@@ -11,7 +11,7 @@
         "clean": "node scripts/clean.js",
         "start": "npm run setup && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js",
-        "setup": "npm install shelljs"
+        "setup": "npm install express shelljs"
     },
     "description": "An HTML landing page template built with Bootstrap",
     "keywords": [
@@ -37,7 +37,8 @@
         "url": "https://github.com/StartBootstrap/startbootstrap-landing-page.git"
     },
     "dependencies": {
-        "bootstrap": "5.2.3"
+        "bootstrap": "5.2.3",
+        "express": "^4.21.2"
     },
     "devDependencies": {
         "autoprefixer": "10.4.14",
