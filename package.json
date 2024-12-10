@@ -11,7 +11,7 @@
         "clean": "node scripts/clean.js",
         "start": "npm run setup && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js",
-        "setup": "npm install shelljs"
+        "setup": "npm install express shelljs"
     },
     "description": "An HTML landing page template built with Bootstrap",
     "keywords": [
