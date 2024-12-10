@@ -3,7 +3,7 @@ pipeline {
     environment {
 	PROJECT_ID = 'aerobic-pivot-436605-v4'
 	CLUSTER_NAME = 'kube'
-	Location = 'asia-northeast3-a'
+	LOCATION = 'asia-northeast3-a'
 	CREDENTIALS_ID = 'gke'
         DOCKER_IMAGE = 'team9'
         DOCKER_HUB_REPO = '20221157/team9' // Docker Hub 계정 반영
