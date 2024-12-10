@@ -24,16 +24,22 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-		sh '''
-                # 기존 컨테이너가 존재하면 중지하고 삭제
-                if docker ps -a | grep team9-container; then
-                    docker stop team9-container || true
-                    docker rm team9-container || true
-                fi
+		script {
+		    sh '''
+                    # 기존 컨테이너가 존재하면 중지하고 삭제
+                        if docker ps -a | grep team9-container; then
+                        docker stop team9-container || true
+                        docker rm team9-container || true
+                    fi
                 
-                # 새 컨테이너 실행
-                docker run --name team9-container -d team9:${env.BUILD_ID}
-                '''
+                    # 새 컨테이너 실행
+                    docker run --name team9-container -d team9:${env.BUILD_ID}
+                    '''
+		    docker.withRegistry('https://registry.hub.docker.com', '20221157') {
+			    myapp.push("latest")
+			    myapp.push("${env.BUILD_ID}")
+		    }
+		}
             }
         }
         stage('Push Docker Image to Docker Hub') {
