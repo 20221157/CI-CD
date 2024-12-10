@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Landing Page v6.0.6 (https://startbootstrap.com/theme/landing-page)
-* Copyright 2013-2024 Start Bootstrap
+* Copyright 2013-2023 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
 */
 /*!
@@ -90,7 +90,56 @@
     scroll-behavior: smooth;
   }
 }
+/* 다크 모드가 활성화된 상태에서의 스타일 */
+body.dark-mode {
+	background-color: #121212;        
+	color: #ffffff; /* 기본 글자 색상 */
+}
 
+/* 개별 요소에 대한 다크 모드 스타일 */
+body.dark-mode nav {
+	background-color: #121212 !important;
+}
+
+body.dark-mode section.testimonials.text-center.bg-light {
+	background-color: #121212 !important;
+}
+body.dark-mode section.features-icons.bg-light.text-center {
+	background-color: #121212 !important;
+}
+body.dark-mode footer {
+	background-color: #121212 !important;
+}
+
+body.dark-mode div {
+        background-color: #121212;
+	border-color: #444; /* 테두리 색상 */
+}
+body.dark-mode a {
+	color: white;
+}
+
+/* .row 클래스의 배경색을 없애기 */
+body.dark-mode [class^="row"] {
+    background-color: transparent !important;
+}
+body.dark-mode div.col-xl-6 {
+	background-color: transparent !important;
+}
+body.dark-mode div.text-center.text-white {
+	background-color: transparent !important;
+}
+body.dark-mode div.col {
+	background-color: transparent !important;
+	
+}
+body.dark-mode div.col-auto {
+	background-color: transparent !important;
+}
+body.dark-mode div.container.position-relative {
+	background-color: transparent !important;
+}
+body.dark-mode
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
