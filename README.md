@@ -1,7 +1,9 @@
 ## CI/CD 파이프라인 확인을 위한 젠킨스 ID, Password, 주소
-*ID : 20221157
-*Password : team9
-*주소 : http://34.22.71.182:8080
+ID : 20221157
+
+Password : team9
+
+주소 : http://34.22.71.182:8080
 
 # [Start Bootstrap - Landing Page](https://startbootstrap.com/theme/landing-page/)
 
